@@ -9,10 +9,10 @@ int red_brightness = 0;
 int green_brightness = 0;
 int blue_brightness = 0;
 
-const int IR_CODE_BRIGHTNESS_UP = 0xFF906F;
-const int IR_CODE_BRIGHTNESS_DOWN = 0xFFB847;
-const int IR_CODE_OFF = 0xFFF807;
-const int IR_CODE_ON = 0xFFB04F;
+#define IR_CODE_BRIGHTNESS_UP 0xFF906F
+#define IR_CODE_BRIGHTNESS_DOWN 0xFFB847
+#define IR_CODE_OFF 0xFFF807
+#define IR_CODE_ON 0xFFB04F
 
 int RECV_PIN = 11;
 IRrecv irrecv(RECV_PIN);
