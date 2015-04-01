@@ -3,27 +3,27 @@ FFB847 - Down
 FFF807 - Off
 FFB04F - On
 
-FF9867
-FFD827
-FF8877
-FFA857
+FF9867 - Red
+FFD827 - Green
+FF8877 - Blue
+FFA857 - White
 
-FFE817
-FF48B7
-FF6897
+FFE817 - Red Orange
+FF48B7 - <Bluish Green>
+FF6897 - Ultramarine
 FFB24D
 
-FF02FD
-FF32CD
-FF20DF
+FF02FD - Orange
+FF32CD - Spring Green
+FF20DF - Violet
 FF00FF
 
-FF50AF
-FF7887
-FF708F
+FF50AF - Amber
+FF7887 - Deep Sky Blue
+FF708F - <VioletMagenta>
 FF58A7
 
-FF38C7
-FF28D7
-FFF00F
+FF38C7 - Yellow
+FF28D7 - Cyan
+FFF00F - Magenta
 FF30CF
