@@ -32,6 +32,13 @@ public:
         update_output();
     }
 
+    void set_color_rgb(int red, int green, int blue) {
+        this->red = red / 255.0;
+        this->green = green / 255.0;
+        this->blue = blue / 255.0;
+        update_output();
+    }
+
     void set_brightness(float brightness) {
         this->brightness = brightness;
         update_output();

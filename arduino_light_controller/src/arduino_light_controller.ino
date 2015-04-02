@@ -21,18 +21,22 @@ LightController light_controller(RED_PIN, GREEN_PIN, BLUE_PIN);
 #define IR_CODE_RED_ORANGE 0xFFE817
 #define IR_CODE_BLUISH_GREEN 0xFF48B7
 #define IR_CODE_ULTRAMARINE 0xFF6897
+#define IR_CODE_FLASH 0xFFB24D
 
 #define IR_CODE_ORANGE 0xFF02FD
 #define IR_CODE_SPRING_GREEN 0xFF32CD
 #define IR_CODE_VIOLET 0xFF20DF
+#define IR_CODE_STROBE 0xFF00FF
 
 #define IR_CODE_AMBER 0xFF50AF
 #define IR_CODE_DEEP_SKY_BLUE 0xFF7887
 #define IR_CODE_VIOLET_MAGENTA 0xFF708F
+#define IR_CODE_FADE 0xFF58A7
 
 #define IR_CODE_YELLOW 0xFF38C7
 #define IR_CODE_CYAN 0xFF28D7
 #define IR_CODE_MAGENTA 0xFFF00F
+#define IR_CODE_SMOOTH 0xFF30CF
 
 int RECV_PIN = 11;
 IRrecv irrecv(RECV_PIN);
@@ -118,6 +122,19 @@ void loop() {
           break;
         case IR_CODE_MAGENTA:
           light_controller.set_color(1.0, 0.0, 1.0);
+          break;
+
+        case IR_CODE_FLASH:
+          light_controller.set_color_rgb(255, 177, 110);
+          break;
+        case IR_CODE_STROBE:
+          light_controller.set_color_rgb(255, 228, 206);
+          break;
+        case IR_CODE_FADE:
+          light_controller.set_color_rgb(255, 254, 250);
+          break;
+        case IR_CODE_SMOOTH:
+          light_controller.set_color_rgb(181, 205, 255);
           break;
       }
     }

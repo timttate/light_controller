@@ -11,19 +11,19 @@ FFA857 - White
 FFE817 - Red Orange
 FF48B7 - <Bluish Green>
 FF6897 - Ultramarine
-FFB24D
+FFB24D - 3000K rgb(255, 177, 110)
 
 FF02FD - Orange
 FF32CD - Spring Green
 FF20DF - Violet
-FF00FF
+FF00FF - 5000K rgb(255, 228, 206)
 
 FF50AF - Amber
 FF7887 - Deep Sky Blue
 FF708F - <VioletMagenta>
-FF58A7
+FF58A7 - 6500K rgb(255, 254, 250)
 
 FF38C7 - Yellow
 FF28D7 - Cyan
 FFF00F - Magenta
-FF30CF
+FF30CF - 15000K rgb(181, 205, 255)
