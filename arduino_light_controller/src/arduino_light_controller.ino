@@ -140,4 +140,79 @@ void loop() {
         }
         irrecv.resume(); // Receive the next value
     }
+
+    process_serial_commands();
+    delay(1);
+}
+
+// Similar to readStringUntil, but support multiple possible terminators
+String readStringUntil(Stream* stream, char terminators[]) {
+    int len_terminators = 0;
+    while (terminators[len_terminators] != '\0') {
+        len_terminators++;
+    }
+
+    String return_string = "";
+    char next_char = Serial.read();
+    while (next_char != ' ' && next_char != '\n') {
+        if (next_char != -1) {
+            return_string = return_string + next_char;
+        }
+        next_char = Serial.read();
+    }
+
+    return return_string;
+}
+
+void process_serial_commands () {
+    if (Serial.available()) {
+        String command = readStringUntil(&Serial, " \n");
+
+        if (command == "set_state") {
+            String param = Serial.readStringUntil('\n');
+            if (param == "on") {
+                Serial.println("Turning On!");
+                light_controller.turn_on();
+            } else if (param == "off") {
+                Serial.println("Turning Off!");
+                light_controller.turn_off();
+            }
+            else {
+                Serial.println("bad param");
+            }
+        }
+        else if (command == "set_bright") {
+            int brightness = Serial.parseInt();
+            Serial.print("Brightness: ");
+            Serial.println(brightness);
+
+            light_controller.set_brightness(brightness / 100.0);
+        }
+        else if (command == "set_rgb") {
+            int red, green, blue;
+            red = Serial.parseInt();
+            Serial.print("Red: ");
+            Serial.println(red);
+
+            green = Serial.parseInt();
+            Serial.print("Green: ");
+            Serial.println(green);
+
+            blue = Serial.parseInt();
+            Serial.print("Blue: ");
+            Serial.println(blue);
+
+            light_controller.set_color_rgb(red, green, blue);
+        }
+        else if (command == "help") {
+            Serial.println("Commands:");
+            Serial.println("set_state [on|off]");
+            Serial.println("set_bright [0-100]");
+            Serial.println("set_rgb [r 0-255] [g 0-255] [b 0-255]");
+        }
+        else {
+            Serial.println("error - invalid command");
+        }
+        Serial.readStringUntil('\n');
+    }
 }
