@@ -44,100 +44,100 @@ decode_results results;
 
 void setup()
 {
-  Serial.begin(9600);
-  light_controller.setup();
-  
-  irrecv.enableIRIn(); // Start the receiver
+    Serial.begin(9600);
+    light_controller.setup();
+
+    irrecv.enableIRIn(); // Start the receiver
 }
 
 void loop() {
-  if (irrecv.decode(&results)) {
-    if (results.bits != 0) {
-      switch (results.value) {
-        case IR_CODE_BRIGHTNESS_UP:
-          light_controller.bright_up();
-          Serial.println("up");
-          break;
-        case IR_CODE_BRIGHTNESS_DOWN:
-          light_controller.bright_down();
-          Serial.println("down");
-          break;
-        case IR_CODE_OFF:
-          light_controller.turn_off();
-          Serial.println("off");
-          break;
-        case IR_CODE_ON:
-          light_controller.turn_on();
-          Serial.println("on");
-          break;
+    if (irrecv.decode(&results)) {
+        if (results.bits != 0) {
+            switch (results.value) {
+                case IR_CODE_BRIGHTNESS_UP:
+                    light_controller.bright_up();
+                    Serial.println("up");
+                    break;
+                case IR_CODE_BRIGHTNESS_DOWN:
+                    light_controller.bright_down();
+                    Serial.println("down");
+                    break;
+                case IR_CODE_OFF:
+                    light_controller.turn_off();
+                    Serial.println("off");
+                    break;
+                case IR_CODE_ON:
+                    light_controller.turn_on();
+                    Serial.println("on");
+                    break;
 
-        case IR_CODE_RED:
-          light_controller.set_color(1.0, 0.0, 0.0);
-          break;
-        case IR_CODE_GREEN:
-          light_controller.set_color(0.0, 1.0, 0.0);
-          break;
-        case IR_CODE_BLUE:
-          light_controller.set_color(0.0, 0.0, 1.0);
-          break;
-        case IR_CODE_WHITE:
-          light_controller.set_color(1.0, 1.0, 1.0);
-          break;
+                case IR_CODE_RED:
+                    light_controller.set_color(1.0, 0.0, 0.0);
+                    break;
+                case IR_CODE_GREEN:
+                    light_controller.set_color(0.0, 1.0, 0.0);
+                    break;
+                case IR_CODE_BLUE:
+                    light_controller.set_color(0.0, 0.0, 1.0);
+                    break;
+                case IR_CODE_WHITE:
+                    light_controller.set_color(1.0, 1.0, 1.0);
+                    break;
 
-        case IR_CODE_RED_ORANGE:
-          light_controller.set_color(1.0, 0.4, 0.0);
-          break;
-        case IR_CODE_BLUISH_GREEN:
-          light_controller.set_color(0.0, 1.0, 0.4);
-          break;
-        case IR_CODE_ULTRAMARINE:
-          light_controller.set_color(0.4, 0.0, 1.0);
-          break;
+                case IR_CODE_RED_ORANGE:
+                    light_controller.set_color(1.0, 0.4, 0.0);
+                    break;
+                case IR_CODE_BLUISH_GREEN:
+                    light_controller.set_color(0.0, 1.0, 0.4);
+                    break;
+                case IR_CODE_ULTRAMARINE:
+                    light_controller.set_color(0.4, 0.0, 1.0);
+                    break;
 
-        case IR_CODE_ORANGE:
-          light_controller.set_color(1.0, 0.5, 0.0);
-          break;
-        case IR_CODE_SPRING_GREEN:
-          light_controller.set_color(0.0, 1.0, 0.5);
-          break;
-        case IR_CODE_VIOLET:
-          light_controller.set_color(0.5, 0.0, 1.0);
-          break;
+                case IR_CODE_ORANGE:
+                    light_controller.set_color(1.0, 0.5, 0.0);
+                    break;
+                case IR_CODE_SPRING_GREEN:
+                    light_controller.set_color(0.0, 1.0, 0.5);
+                    break;
+                case IR_CODE_VIOLET:
+                    light_controller.set_color(0.5, 0.0, 1.0);
+                    break;
 
-        case IR_CODE_AMBER:
-          light_controller.set_color(1.0, 0.75, 0.0);
-          break;
-        case IR_CODE_DEEP_SKY_BLUE:
-          light_controller.set_color(0.0, 1.0, 0.75);
-          break;
-        case IR_CODE_VIOLET_MAGENTA:
-          light_controller.set_color(0.75, 0.0, 1.0);
-          break;
+                case IR_CODE_AMBER:
+                    light_controller.set_color(1.0, 0.75, 0.0);
+                    break;
+                case IR_CODE_DEEP_SKY_BLUE:
+                    light_controller.set_color(0.0, 1.0, 0.75);
+                    break;
+                case IR_CODE_VIOLET_MAGENTA:
+                    light_controller.set_color(0.75, 0.0, 1.0);
+                    break;
 
-        case IR_CODE_YELLOW:
-          light_controller.set_color(1.0, 1.0, 0.0);
-          break;
-        case IR_CODE_CYAN:
-          light_controller.set_color(0.0, 1.0, 1.0);
-          break;
-        case IR_CODE_MAGENTA:
-          light_controller.set_color(1.0, 0.0, 1.0);
-          break;
+                case IR_CODE_YELLOW:
+                    light_controller.set_color(1.0, 1.0, 0.0);
+                    break;
+                case IR_CODE_CYAN:
+                    light_controller.set_color(0.0, 1.0, 1.0);
+                    break;
+                case IR_CODE_MAGENTA:
+                    light_controller.set_color(1.0, 0.0, 1.0);
+                    break;
 
-        case IR_CODE_FLASH:
-          light_controller.set_color_rgb(255, 177, 110);
-          break;
-        case IR_CODE_STROBE:
-          light_controller.set_color_rgb(255, 228, 206);
-          break;
-        case IR_CODE_FADE:
-          light_controller.set_color_rgb(255, 254, 250);
-          break;
-        case IR_CODE_SMOOTH:
-          light_controller.set_color_rgb(181, 205, 255);
-          break;
-      }
+                case IR_CODE_FLASH:
+                    light_controller.set_color_rgb(255, 177, 110);
+                    break;
+                case IR_CODE_STROBE:
+                    light_controller.set_color_rgb(255, 228, 206);
+                    break;
+                case IR_CODE_FADE:
+                    light_controller.set_color_rgb(255, 254, 250);
+                    break;
+                case IR_CODE_SMOOTH:
+                    light_controller.set_color_rgb(181, 205, 255);
+                    break;
+            }
+        }
+        irrecv.resume(); // Receive the next value
     }
-    irrecv.resume(); // Receive the next value
-  }
 }
