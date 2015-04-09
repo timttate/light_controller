@@ -27,7 +27,8 @@ def turn_off():
     ser = serial.Serial(SERIAL_PORT)
     ser.write(serial_command)
     ser.close()
-    return "turned off"
+
+    return serial_command
 
 @app.route("/set_rgb", methods=["GET"])
 def set_rgb():
