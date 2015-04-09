@@ -1,0 +1,42 @@
+
+<HTML>
+<head>
+    <style type="text/css">
+        a {
+            font-family: sans-serif;
+            display: block;
+            width: 3em;
+            height: 3em;
+            color: black;
+            text-decoration: none;
+            border: 10px outset #999;
+            border-radius: 3em;
+            text-align: center;
+        }
+
+        a:hover {
+            border-style: inset;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            
+            <td></td>
+            <td></td>
+            <td><a style="background-color: rgb(0, 0, 0); color: white;" href="off"><br>Off</a></td>
+            <td><a style="background-color: rgb(255, 0, 0); color: white;" href="on"><br>On</a></td>
+            
+        </tr>
+        {% for row in color_map %}
+        <tr>
+            {% for color in row %}
+            <td><a style="background-color: rgb({{color[1].red}}, {{color[1].green}}, {{color[1].blue}});" href="set_rgb?red={{color[1].red}}&green={{color[1].green}}&blue={{color[1].blue}}" title="{{color[0]}}"> </a></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    {{message}}
+</body>
+</HTML>
