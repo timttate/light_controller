@@ -213,6 +213,5 @@ void process_serial_commands () {
         else {
             Serial.println("error - invalid command");
         }
-        Serial.readStringUntil('\n');
     }
 }
