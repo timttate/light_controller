@@ -14,7 +14,7 @@ def index():
 
 @app.route("/on")
 def turn_on():
-    serial_command = "set_state on"
+    serial_command = "set_state on\n"
     ser = serial.Serial(SERIAL_PORT)
     ser.write(serial_command)
     ser.close()
@@ -23,7 +23,7 @@ def turn_on():
 
 @app.route("/off")
 def turn_off():
-    serial_command = "set_state off"
+    serial_command = "set_state off\n"
     ser = serial.Serial(SERIAL_PORT)
     ser.write(serial_command)
     ser.close()
@@ -35,7 +35,7 @@ def set_rgb():
     green = int(request.args.get('green', '0'))
     blue = int(request.args.get('blue', '0'))
 
-    serial_command = "set_rgb %r %r %r" % (red, green, blue)
+    serial_command = "set_rgb %r %r %r\n" % (red, green, blue)
     ser = serial.Serial(SERIAL_PORT)
     ser.write(serial_command)
     ser.close()
@@ -46,7 +46,7 @@ def set_rgb():
 def set_bright():
     brightness = int(request.args.get('brightness'))
 
-    serial_command = "set_bright %r" % brightness
+    serial_command = "set_bright %r\n" % brightness
     ser = serial.Serial(SERIAL_PORT)
     ser.write(serial_command)
     ser.close()
