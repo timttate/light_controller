@@ -69,9 +69,9 @@ def generate_remote(message=None):
             ("Blue", rgb(0, 0, 255)),
             ("White", rgb(255, 255, 255))
         ], [
-            ("Red Orange", rgb(255, 0, 0)),
-            ("<Bluish Green>", rgb(0, 255, 0)),
-            ("Ultramarine", rgb(0, 0, 255)),
+            ("Red Orange", rgb(255, 64, 0)),
+            ("<Bluish Green>", rgb(0, 255, 64)),
+            ("Ultramarine", rgb(64, 0, 255)),
             ("3000K", rgb(255, 177, 110)),
         ], [
             ("Orange", rgb(255, 127, 0)),
