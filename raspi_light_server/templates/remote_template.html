@@ -47,7 +47,8 @@
     </table>
     <table style="float: left;">
         {% for i in range(100, 0, -20) %}
-        <tr><td><a href="set_bright?brightness={{i}}"><br>{{i}}</a></td></tr>
+        {% set j = (i*255) // 100 %}
+        <tr><td><a style="background-color: rgb({{j}}, {{j}}, {{j}});" href="set_bright?brightness={{i}}"><br>{{i}}</a></td></tr>
         {% endfor %}
     </table>
     {{message}}
