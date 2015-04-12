@@ -2,6 +2,14 @@
 <HTML>
 <head>
     <style type="text/css">
+        table {
+            border: 1px solid black;
+            border-radius: 3em;
+            padding: .75em;
+            float: left;
+            margin: .5em;
+        }
+
         a {
             font-family: sans-serif;
             display: block;
@@ -35,6 +43,11 @@
             <td><a style="background-color: rgb({{color[1].red}}, {{color[1].green}}, {{color[1].blue}});" href="set_rgb?red={{color[1].red}}&green={{color[1].green}}&blue={{color[1].blue}}" title="{{color[0]}}"> </a></td>
             {% endfor %}
         </tr>
+        {% endfor %}
+    </table>
+    <table style="float: left;">
+        {% for i in range(100, 0, -20) %}
+        <tr><td><a href="set_bright?brightness={{i}}"><br>{{i}}</a></td></tr>
         {% endfor %}
     </table>
     {{message}}
