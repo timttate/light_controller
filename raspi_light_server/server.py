@@ -7,6 +7,10 @@ app = Flask(__name__)
 manager = Manager(app)
 
 SERIAL_PORT = "/dev/cu.usbmodemfd121"
+def send_serial_command(serial_command):
+    ser = serial.Serial(SERIAL_PORT)
+    ser.write(serial_command)
+    ser.close()
 
 @app.route("/")
 def index():
@@ -15,19 +19,13 @@ def index():
 @app.route("/on")
 def turn_on():
     serial_command = "set_state on\n"
-    ser = serial.Serial(SERIAL_PORT)
-    ser.write(serial_command)
-    ser.close()
-
+    send_serial_command(serial_command)
     return generate_remote(serial_command)
 
 @app.route("/off")
 def turn_off():
     serial_command = "set_state off\n"
-    ser = serial.Serial(SERIAL_PORT)
-    ser.write(serial_command)
-    ser.close()
-
+    send_serial_command(serial_command)
     return generate_remote(serial_command)
 
 @app.route("/set_rgb", methods=["GET"])
@@ -37,10 +35,7 @@ def set_rgb():
     blue = int(request.args.get('blue', '0'))
 
     serial_command = "set_rgb %r %r %r\n" % (red, green, blue)
-    ser = serial.Serial(SERIAL_PORT)
-    ser.write(serial_command)
-    ser.close()
-
+    send_serial_command(serial_command)
     return generate_remote(serial_command)
 
 @app.route("/set_bright", methods=["GET"])
@@ -48,10 +43,7 @@ def set_bright():
     brightness = int(request.args.get('brightness'))
 
     serial_command = "set_bright %r\n" % brightness
-    ser = serial.Serial(SERIAL_PORT)
-    ser.write(serial_command)
-    ser.close()
-
+    send_serial_command(serial_command)
     return generate_remote(serial_command)
 
 class rgb:
