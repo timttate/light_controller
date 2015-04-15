@@ -20,13 +20,13 @@ def index():
 def turn_on():
     serial_command = "set_state on\n"
     send_serial_command(serial_command)
-    return generate_remote(serial_command)
+    return serial_command
 
 @app.route("/off")
 def turn_off():
     serial_command = "set_state off\n"
     send_serial_command(serial_command)
-    return generate_remote(serial_command)
+    return serial_command
 
 @app.route("/set_rgb", methods=["GET"])
 def set_rgb():
@@ -36,7 +36,7 @@ def set_rgb():
 
     serial_command = "set_rgb %r %r %r\n" % (red, green, blue)
     send_serial_command(serial_command)
-    return generate_remote(serial_command)
+    return serial_command
 
 @app.route("/set_bright", methods=["GET"])
 def set_bright():
@@ -44,7 +44,7 @@ def set_bright():
 
     serial_command = "set_bright %r\n" % brightness
     send_serial_command(serial_command)
-    return generate_remote(serial_command)
+    return serial_command
 
 class rgb:
     def __init__(self, red, green, blue):

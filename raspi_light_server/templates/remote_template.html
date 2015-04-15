@@ -32,6 +32,37 @@
         }
     }
     </style>
+
+    <script type="text/javascript">
+        function callAjax(url, callback) {
+            var xmlhttp;
+            // compatible with IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    callback(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function turn_off() {
+            callAjax("off", function(responseText){document.getElementById("message").innerHTML=responseText;})
+        }
+
+        function turn_on() {
+            callAjax("on", function(responseText){document.getElementById("message").innerHTML=responseText;})
+        }
+
+        function set_brightness(brightness) {
+            callAjax("set_bright?brightness="+brightness, function(responseText){document.getElementById("message").innerHTML=responseText;})
+        }
+
+        function set_rgb(red, green, blue) {
+            callAjax("set_rgb?red="+red+"&green="+green+"&blue="+blue, function(responseText){document.getElementById("message").innerHTML=responseText;})
+        }
+    </script>
 </head>
 <body>
     <table>
@@ -39,14 +70,14 @@
             
             <td></td>
             <td></td>
-            <td><a style="background-color: rgb(0, 0, 0); color: white;" href="off"><br>Off</a></td>
-            <td><a style="background-color: rgb(255, 0, 0); color: white;" href="on"><br>On</a></td>
+            <td><a style="background-color: rgb(0, 0, 0); color: white;" onclick="turn_off();"><br>Off</a></td>
+            <td><a style="background-color: rgb(255, 0, 0); color: white;" onclick="turn_on();"><br>On</a></td>
             
         </tr>
         {% for row in color_map %}
         <tr>
             {% for color in row %}
-            <td><a style="background-color: rgb({{color[1].red}}, {{color[1].green}}, {{color[1].blue}});" href="set_rgb?red={{color[1].red}}&green={{color[1].green}}&blue={{color[1].blue}}" title="{{color[0]}}"> </a></td>
+            <td><a style="background-color: rgb({{color[1].red}}, {{color[1].green}}, {{color[1].blue}});" onclick="set_rgb({{color[1].red}}, {{color[1].green}}, {{color[1].blue}})" title="{{color[0]}}"> </a></td>
             {% endfor %}
         </tr>
         {% endfor %}
@@ -54,9 +85,9 @@
     <table style="float: left;">
         {% for i in range(100, 0, -20) %}
         {% set j = (i*255) // 100 %}
-        <tr><td><a style="background-color: rgb({{j}}, {{j}}, {{j}});" href="set_bright?brightness={{i}}"><br>{{i}}</a></td></tr>
+        <tr><td><a style="background-color: rgb({{j}}, {{j}}, {{j}});" onclick="set_brightness({{i}})"><br>{{i}}</a></td></tr>
         {% endfor %}
     </table>
-    {{message}}
+    <div id="message">Test</div>
 </body>
 </HTML>
