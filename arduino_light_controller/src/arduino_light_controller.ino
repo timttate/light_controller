@@ -3,7 +3,7 @@
 #include "LightController.h"
 
 #define RED_PIN 9
-#define GREEN_PIN 3
+#define GREEN_PIN 5
 #define BLUE_PIN 10
 
 LightController light_controller(RED_PIN, GREEN_PIN, BLUE_PIN);
