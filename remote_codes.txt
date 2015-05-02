@@ -1,29 +1,29 @@
-FF906F - Up
-FFB847 - Down
-FFF807 - Off
-FFB04F - On
+E5CFBD7F - Up
+A23C94BF - Down
+E721C0DB - Off
+F0C41643 - On
 
-FF9867 - Red
-FFD827 - Green
-FF8877 - Blue
-FFA857 - White
+97483BFB - Red
+86B0E697 - Green
+9EF4941F - Blue
+A3C8EDDB - White
 
-FFE817 - Red Orange
-FF48B7 - <Bluish Green>
-FF6897 - Ultramarine
-FFB24D - 3000K rgb(255, 177, 110)
+5BE75E7F - Red Orange
+F377C5B7 - <Bluish Green>
+C101E57B - Ultramarine
+7EC31EF7 - 3000K rgb(255, 177, 110)
 
-FF02FD - Orange
-FF32CD - Spring Green
-FF20DF - Violet
-FF00FF - 5000K rgb(255, 228, 206)
+D7E84B1B - Orange
+EE4ECCFB - Spring Green
+51E43D1B - Violet
+FA3F159F - 5000K rgb(255, 228, 206)
 
-FF50AF - Amber
-FF7887 - Deep Sky Blue
-FF708F - <VioletMagenta>
-FF58A7 - 6500K rgb(255, 254, 250)
+2A89195F - Amber
+F63C8657 - Deep Sky Blue
+44C407DB - <VioletMagenta>
+DC0197DB - 6500K rgb(255, 254, 250)
 
-FF38C7 - Yellow
-FF28D7 - Cyan
-FFF00F - Magenta
-FF30CF - 15000K rgb(181, 205, 255)
+488F3CBB - Yellow
+13549BDF - Cyan
+35A9425F - Magenta
+9716BE3F - 15000K rgb(181, 205, 255)
