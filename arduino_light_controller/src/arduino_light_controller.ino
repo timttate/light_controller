@@ -44,6 +44,9 @@ decode_results results;
 
 void setup()
 {
+    // set timer1 to fast mode, to sync with timer0
+    bitSet(TCCR1B, WGM12);
+
     Serial.begin(9600);
     light_controller.setup();
 
