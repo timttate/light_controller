@@ -149,7 +149,7 @@ void loop() {
 }
 
 // Similar to readStringUntil, but support multiple possible terminators
-String readStringUntil(Stream* stream, char terminators[]) {
+String readStringUntil(Stream* stream, const char terminators[]) {
     int len_terminators = 0;
     while (terminators[len_terminators] != '\0') {
         len_terminators++;
