@@ -216,5 +216,9 @@ void process_serial_commands () {
         else {
             Serial.println("error - invalid command: \"" + command + "\"");
         }
+        
+        while(Serial.available() && !isAlpha(Serial.peek())) {
+            Serial.read();
+        }
     }
 }
