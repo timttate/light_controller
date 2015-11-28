@@ -214,7 +214,7 @@ void process_serial_commands () {
             Serial.println("set_rgb [r 0-255] [g 0-255] [b 0-255]");
         }
         else {
-            Serial.println("error - invalid command");
+            Serial.println("error - invalid command: \"" + command + "\"");
         }
     }
 }
