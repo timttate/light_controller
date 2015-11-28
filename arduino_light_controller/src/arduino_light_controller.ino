@@ -156,12 +156,12 @@ String readStringUntil(Stream* stream, char terminators[]) {
     }
 
     String return_string = "";
-    char next_char = Serial.read();
-    while (next_char != ' ' && next_char != '\n') {
-        if (next_char != -1) {
-            return_string = return_string + next_char;
+    int next_byte = Serial.read();
+    while ((char)next_byte != ' ' && (char)next_byte != '\n') {
+        if (next_byte != -1) {
+            return_string = return_string + (char)next_byte;
         }
-        next_char = Serial.read();
+        next_byte = Serial.read();
     }
 
     return return_string;
