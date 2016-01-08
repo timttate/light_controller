@@ -1,7 +1,7 @@
 
 #include <IRremote.h>
 #include "LightController.h"
-#include "ArduinoRemoteCode.h"
+#include "ArduinoRemoteCodes.h"
 
 #define RED_PIN 9
 #define GREEN_PIN 5
