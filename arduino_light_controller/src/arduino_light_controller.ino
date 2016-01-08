@@ -111,6 +111,9 @@ void loop() {
                 case IR_CODE_SMOOTH:
                     light_controller.set_color_rgb(181, 205, 255);
                     break;
+
+                default:
+                    Serial.println("unknown IR Code: " + String(results.value));
             }
         }
         irrecv.resume(); // Receive the next value
